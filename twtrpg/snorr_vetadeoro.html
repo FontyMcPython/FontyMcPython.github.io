@@ -7,6 +7,7 @@
       background-image: url("bckgnd.png");
       background-color: #cccccc;
       font-size: 20px;
+      padding: 30px;
   }
   @font-face {
 		font-family: "Bookinsanity";
@@ -26,12 +27,17 @@
   h2 {
     color: #800000;
     text-decoration: underline;
-    font-weight: 300;
+    font-weight: 400;
+  }
+
+  h3 {
+    color: #800000;
+    font-weight: 400;
   }
   strong {
     color: #800000;
   }
-  #trasfondo {
+  #main {
        text-align: justify;
   }
   #charsheet {
@@ -43,7 +49,7 @@
 </head>
 <body>
   <h1> SNORRI VETADEORO </h1>
-  <div id="trasfondo">
+  <div id="main">
     <div id="charsheet">
       <img src="char.png"><br>
       <table style="width:740px;text-align: right;font-size: 30px;">
@@ -56,8 +62,12 @@
         <td></td><td><strong> XP: </strong>0</td>
       </table>
     </div>
-    <div class="input">
-    <h2> El clan Vetadeoro </h2>
+    <div class="item" id="snorri">
+      <h2> Snorri Vetadeoro </h2>
+    </div>
+    <div class="item" id="trasfondo">
+    <h2> Trasfondo </h2>
+    <h3> El origen del clan Vetadeoro </h3>
     <p>Nuestra historia se remonta a los albores de la primera era. Un tiempo en el que los humanos aún
     no habían aperecido y los dioses caminaban por la tierra, esculpiéndola a su parecer. Fue la
     época de los primeros héroes y sus leyendas. Los enanos eran una raza dispersa pero con
@@ -86,7 +96,7 @@
     <p>En el fragor de la batalla, una luz de intensidad cegadora forzó a las fuerzas del mal a replegarse por unos
     instantes. Ni unos ni otros comprendían el origen de este brillo, pero las fuerzas enanas no tardaron en darse
     cuenta de que en pleno centro del resplandor se encontraba uno de los suyos, erguido con gesto desafiante. Tenía
-    los cabellos dorados, un rasgo extremadamente poco frecuente. Tenia la piel de color moreno muy oscuro por lo que
+    los cabellos dorados, un rasgo extremadamente poco frecuente entre los moradores de las montañas. Tenia la piel de color moreno muy oscuro por lo que
     su barba y cabellera destacaban como vetas de oro en la piedra. Parecía como si la propia montaña se hubiera personificado
     para luchar junto a ellos. Sin mediar palabra, cargó contra las huestes enemigas. </p>
     <p>Asombrados por su impactante presencia y su valentía, el resto de sus compañeros cargaron con esperanzas de que
