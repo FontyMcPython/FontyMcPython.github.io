@@ -1,8 +1,68 @@
 <html>
 <head>
-	<title>Jose A. Font</title>
+	<style>
+		body {
+			background-color: #e8e8e8;
+		}
+		a {
+			color: black;
+			text-decoration: none;
+		}
+		a:hover {
+			text-decoration: underline;
+		}
+		#side_bar {
+			height: 100%;
+			width: 250px;
+			position: fixed;
+			top: 0;
+			left: 0;
+			background-color: #111;
+			color: white;
+			padding: 15px;
+			text-align: justify;
+		}
+		#main_part {
+			margin-left: 278px;
+		}
+		.item {
+			padding-left: 10px;
+			padding-right: 10px;
+			margin-top: 0px;
+			margin-bottom: 0px;
+			padding-bottom: 5px;
+			background-color: white;
+			-webkit-box-shadow: 5px 17px 15px -17px rgba(0,0,0,0.45);
+			-moz-box-shadow: 5px 17px 15px -17px rgba(0,0,0,0.45);
+			box-shadow: 5px 17px 15px -17px rgba(0,0,0,0.45);
+		}
+	</style>
+	<title>Jose Font</title>
 </head>
 <body>
-	<h1>Jose A. Font</h1>
+	<div id="side_bar">
+		<img src="profile_picture.jpg" width="250px"></img>
+		<h1 style="text-align: center;">José Font <a href="https://twitter.com/jos_font?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-show-count="false">@jos_font</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></h1>
+		<p>Telecommunications engineer from Madrid. Currently working at Ennomotive
+		and finishing my studies at ICAI. Interested in programming, videogames,
+	  roleplaying games, literature and philosophy.</p>
+	</div>
+	<div id="main_part">
+		<div class="item">
+			<img src="./rol/dnd/char.png" width="150px" style="float:left;overflow:auto;margin:5px;">
+			<a href="./rol/dnd/snorr_vetadeoro.html"><h1>DND: Snorri Vetadeoro</h1></a>
+			<p> Personaje para la partida de DnD de Pancho. Se trata de un enano hechicero
+			fuertemente motivado por continuar las tradiciones de su clan y recuperar su
+		  vieja gloria tras ser prácticamente erradicado durante su niñez. </p>
+			<div style="clear: both"></div>
+		</div>
+		<div class="item">
+			<img src="./rol/twtrpg/twtrpg.jpg" width="150px" style="float:left;overflow:auto;margin:5px;">
+			<a href="./rol/twtrpg/index.html"><h1>The witcher TRPG: Character generator</h1></a>
+			<p> Character generator for The Witcher tabletop rpg. Still WIP. </p>
+			<div style="clear: both"></div>
+		</div>
+	</div>
+
 </body>
 </html>
