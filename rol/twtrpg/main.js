@@ -1,6 +1,6 @@
 // ROOT DATA LISTS
-var races = ["Human", "Dwarf", "Elf", "Witcher"];
-var classes = ["Craftsman", "Bard", "Witcher", "Criminal", "Doctor", "Man at arms", "Wizard", "Trader", "Priest"];
+var races = ["human", "dwarf", "elf", "witcher"];
+var classes = ["craftsman", "bard", "witcher", "criminal", "doctor", "man at arms", "wizard", "trader", "priest"];
 var origins = ["Northern Kingdoms", "Nilfgaard", "Elderlands"];
 var nilfgaard_origins = [["The heart of Nilfgaard", "+1 to Deceit"], ["Vicovaro","+1 to Education"], ["Angren","+1 to Wilderness Survival"], ["Nazair","+1 to Brawling"], ["Mettina","+1 to Ride"], ["Mag Turga","+1 to Endurance"], ["Gheso","+1 to Stealth"], ["Ebbing","+1 to Deduction"], ["Maecht","+1 to Charisma"], ["Gemmeria","+1 to Intimidation"], ["Etolia","+1 to Courage"]];
 var northern_lands_origins = [["Redania", "+1 to Education"], ["Kaedwen", "+1 to Endurance"], ["Temeria", "+1 to Charisma"], ["Aedirn", "+1 to Crafting"], ["Lyria and Rivia", "+1 to Resist Coercion"], ["Kovir and Poviss", "+1 to Business"], ["Skellige", "+1 to Courage"], ["Cidaris", "+1 to Sailing"], ["Verden", "+1 to Wilderness Survival"],["Cintra", "+1 to Human Perception"]];
@@ -240,7 +240,13 @@ function Pj(name, clase, race, age){
   this.race = race;
   this.age = age;
   this.toString = function(){
-    var bio = "TODO";
+    var bio = "";
+    // NAME AGE RACE CLASS
+    bio = bio + this.name + " (" + this.age + ")"
+    if(this.race == 3 ) bio = bio + ", a " + races[this.race];
+    else if (this.race == 2) bio = bio + ", an " + races[this.race] + " " + classes[this.clase] + ".";
+    else bio = bio +  ", a " + races[this.race] + " " + classes[this.clase] + " ";
+    bio = bio + "from " + regions[this.region] + ", " + origins[this.origin];
     return bio
   }
 }
