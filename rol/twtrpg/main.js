@@ -626,11 +626,18 @@ function random_generate(pj) {
   }
 }
 
-var pj = new Pj("Teofanes", 8, 0, 52);
-random_generate(pj)
-console.log(pj.toString());
+function formGenerate() {
+  var pj = new Pj(document.forms[0].name.value, document.forms[0].class.value, document.forms[0].race.value, document.forms[0].age.value);
+  random_generate(pj);
+  console.log(pj);
+  document.getElementById("answer").innerHTML = pj.toString();
+}
+
+//var pj = new Pj("Teofanes", 8, 0, 52);
+//random_generate(pj)
+//console.log(pj.toString());
 //console.log(pj);
-var pj2 = new Pj("Aeothas", 0, 2, 94);
-random_generate(pj2);
-console.log(pj2.toString());
+//var pj2 = new Pj("Aeothas", 0, 2, 94);
+//random_generate(pj2);
+//console.log(pj2.toString());
 //console.log(pj2);

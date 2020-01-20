@@ -3,4 +3,21 @@
     <title>TWTRPG Unofficial character generator</title>
     <script src="main.js"></script>
   </head>
+  <body>
+    <form id="frm1">
+      Name: <input type="text" name="name"><br>
+      Race: <input type="radio" name="race" value="0" checked> Human
+      <input type="radio" name="race" value="1"> Dwarf
+      <input type="radio" name="race" value="2"> Elf<br>
+      Class: <input type="radio" name="class" value="0"> Craftsman
+             <input type="radio" name="class" value="1"> Bard
+             <input type="radio" name="class" value="3" checked> Criminal
+             <input type="radio" name="class" value="4"> Doctor
+             <input type="radio" name="class" value="5"> Man at arms
+             <input type="radio" name="class" value="6"> Wizard
+             <input type="radio" name="class" value="7"> Trader
+             <input type="radio" name="class" value="8"> Priest<br>
+      Age: <input type="text" name="age"></form><button onclick="formGenerate()">Submit</button>
+    <div id="answer"></div>
+  </body>
 </html>
