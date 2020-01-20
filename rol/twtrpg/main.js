@@ -6,7 +6,7 @@ var nilfgaard_origins = [["The heart of Nilfgaard", "+1 to Deceit"], ["Vicovaro"
 var northern_lands_origins = [["Redania", "+1 to Education"], ["Kaedwen", "+1 to Endurance"], ["Temeria", "+1 to Charisma"], ["Aedirn", "+1 to Crafting"], ["Lyria and Rivia", "+1 to Resist Coercion"], ["Kovir and Poviss", "+1 to Business"], ["Skellige", "+1 to Courage"], ["Cidaris", "+1 to Sailing"], ["Verden", "+1 to Wilderness Survival"],["Cintra", "+1 to Human Perception"]];
 var elder_lands_origins = [["Mahakam", "+1 to Crafting"], ["Dol Blathana", "+1 to Social Etiquette"]];
 var familys = ["A part of your family is alive and together", "Something happened to your family"];
-var parentss = ["Your parents are alive", "Something happened to your parents."];
+var parentss = ["Your parents are alive", "Something happened to your parents"];
 var family_fates = [
   ["Your family was scattered to the winds by the wars and you have no idea where most of them are",
    "Your family was imprisoned for crimes or on trumped-up charges. You were the only one to escape. You may want to free them...or maybe not",
@@ -193,8 +193,8 @@ var influential_friends = [
 ];
 
 var siblingss = [
-  ["Man", "Woman"],
-  ["Younger", "Older", "Twin"],
+  ["brother", "sister"],
+  ["younger", "older", "twin"],
   ["Wants you dead", "Can't stand you", "Jealous of you", "No feelings about you", "Likes you", "Looks up to you", "Possessive of you"],
   ["Shy", "Aggresive", "Kind", "Strange", "Thoughtful", "Talkative", "Romantic", "Stern", "Depressive", "Immature"]
 ];
@@ -243,11 +243,26 @@ function Pj(name, clase, race, age){
     var bio = "";
     // NAME AGE RACE CLASS
     bio = bio + this.name + " (" + this.age + ")"
-    if(this.race == 3 ) bio = bio + ", a " + races[this.race];
-    else if (this.race == 2) bio = bio + ", an " + races[this.race] + " " + classes[this.clase] + ".";
+    if(this.race == 3 ) bio = bio + ", a " + races[this.race] + " ";
+    else if (this.race == 2) bio = bio + ", an " + races[this.race] + " " + classes[this.clase] + " ";
     else bio = bio +  ", a " + races[this.race] + " " + classes[this.clase] + " ";
-    bio = bio + "from " + regions[this.region] + ", " + origins[this.origin];
-    return bio
+    bio = bio + "from ";
+    if (this.origin == 0) bio = bio + northern_lands_origins[this.region][0] + ", " + origins[this.origin] + " ( " + northern_lands_origins[this.region][1] + ").";
+    if (this.origin == 1) bio = bio + nilfgaard_origins[this.region][0] + ", " + origins[this.origin] + " ( " + nilfgaard_origins[this.region][1] + ").";
+    if (this.origin == 2) bio = bio + elder_lands_origins[this.region][0] + ", " + origins[this.origin] + " ( " + elder_lands_origins[this.region][1] + ").";
+    if (this.family == 1) {
+      bio = bio + " " + family_fates[this.origin][this.family_fate] + ".";
+    }
+    if (this.parents == 1 || this.family == 1) {
+      bio = bio + " " + parents_fates[this.origin][this.parents_fate] + ".";
+    }
+    bio = bio + " " + family_statuss[this.origin][this.family_status][0] + " ( " + family_statuss[this.origin][this.family_status][1] + ").";
+    bio = bio + " Most influential friend: " + influential_friends[this.origin][this.influential_friend][0] + " ( " + influential_friends[this.origin][this.influential_friend][1] + ").";
+    bio = bio + " You have " + this.siblings + " siblings.";
+    for(let i=0; i<this.siblings; i++) {
+      bio = bio + " A " + siblingss[3][this.siblings_list[i][3]] + " " + siblingss[1][this.siblings_list[i][1]] + " " + siblingss[0][this.siblings_list[i][0]] + " who " + siblingss[2][this.siblings_list[i][2]] + ".";
+    }
+    return bio;
   }
 }
 
@@ -614,8 +629,8 @@ function random_generate(pj) {
 var pj = new Pj("Teofanes", 8, 0, 52);
 random_generate(pj)
 console.log(pj.toString());
-console.log(pj);
+//console.log(pj);
 var pj2 = new Pj("Aeothas", 0, 2, 94);
 random_generate(pj2);
 console.log(pj2.toString());
-console.log(pj2);
+//console.log(pj2);
