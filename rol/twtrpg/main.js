@@ -626,11 +626,165 @@ function random_generate(pj) {
   }
 }
 
+var pj = "Null";
 function formGenerate() {
-  var pj = new Pj(document.forms[0].name.value, document.forms[0].class.value, document.forms[0].race.value, document.forms[0].age.value);
+  pj = new Pj(document.forms[0].name.value, parseInt(document.forms[0].class.value), parseInt(document.forms[0].race.value), parseInt(document.forms[0].age.value));
   random_generate(pj);
-  console.log(pj);
   document.getElementById("answer").innerHTML = pj.toString();
+}
+
+var dest = "region";
+function roll_item(item) {
+  document.getElementById(item).value = roll(10).toString();
+}
+
+function choices() {
+  if(pj==="Null") pj = new Pj(document.forms[0].name.value, parseInt(document.forms[0].class.value), parseInt(document.forms[0].race.value), parseInt(document.forms[0].age.value));
+  if(pj.race != 0) dest ="family";
+  if(dest=="region") {
+    document.getElementById("answer").innerHTML ="Region: <input type='text' id='roll'><button onclick='roll_item(\"roll\")'>1d10</button><button onclick='step()'>Next</button>";
+  }
+  else if (dest==="nilfgaard_origin") {
+    document.getElementById("answer").innerHTML ="Nilfgaard Origin: <input type='text' id='roll'><button onclick='roll_item(\"roll\")'>1d10</button><button onclick='step()'>Next</button>";
+  }
+  else if (dest==="nilfgaard_vassal") {
+    document.getElementById("answer").innerHTML ="Nilfgaard Vassal: <input type='text' id='roll'><button onclick='roll_item(\"roll\")'>1d10</button><button onclick='step()'>Next</button>";
+  }
+  else if (dest==="northern_lands_origin") {
+    document.getElementById("answer").innerHTML ="Northern Lands origin: <input type='text' id='roll'><button onclick='roll_item(\"roll\")'>1d10</button><button onclick='step()'>Next</button>";
+  }
+  else if (dest==="elder_lands_origin") {
+  }
+  else if (dest==="family") {
+    document.getElementById("answer").innerHTML ="Family: <input type='text' id='roll'><button onclick='roll_item(\"roll\")'>1d10</button><button onclick='step()'>Next</button>";
+  }
+  else if (dest==="parents") {
+    document.getElementById("answer").innerHTML ="Parents: <input type='text' id='roll'><button onclick='roll_item(\"roll\")'>1d10</button><button onclick='step()'>Next</button>";
+  }
+  else if (dest==="family_fate") {
+    document.getElementById("answer").innerHTML ="Family fate: <input type='text' id='roll'><button onclick='roll_item(\"roll\")'>1d10</button><button onclick='step()'>Next</button>";
+  }
+  else if (dest==="parents_fate") {
+    document.getElementById("answer").innerHTML ="Parents fate: <input type='text' id='roll'><button onclick='roll_item(\"roll\")'>1d10</button><br>Which parent: <input type='text' id='roll2'><button onclick='roll_item(\"roll2\")'>1d10</button><button onclick='step()'>Next</button>";
+  }
+  else if (dest==="family_status") {
+    document.getElementById("answer").innerHTML ="Family status: <input type='text' id='roll'><button onclick='roll_item(\"roll\")'>1d10</button><button onclick='step()'>Next</button>";
+  }
+  else if (dest==="influential_friend") {
+    document.getElementById("answer").innerHTML ="Influential friend: <input type='text' id='roll'><button onclick='roll_item(\"roll\")'>1d10</button><button onclick='step()'>Next</button>";
+  }
+  else if (dest==="siblings") {
+    document.getElementById("answer").innerHTML ="Siblings: <input type='text' id='roll'><button onclick='roll_item(\"roll\")'>1d10</button><button onclick='step()'>Next</button>";
+  }
+  else if (dest==="siblings_generation") {
+    document.getElementById("answer").innerHTML ="sibling<br>Gender: <input type='text' id='roll'><button onclick='roll_item(\"roll\")'>1d10</button><br>Age: <input type='text' id='roll2'><button onclick='roll_item(\"roll2\")'>1d10</button><br>Feelings: <input type='text' id='roll3'><button onclick='roll_item(\"roll3\")'>1d10</button><br>Personality: <input type='text' id='roll4'><button onclick='roll_item(\"roll4\")'>1d10</button><button onclick='step()'>Next</button>";
+  }
+  else if (dest==="life_events") {
+    document.getElementById("answer").innerHTML ="Life event: <input type='text' id='roll'><button onclick='roll_item(\"roll\")'>1d10</button><button onclick='step()'>Next</button>";
+  }
+  else if(dest==="venture_desventure") {
+    dest = venture_desventure(pj, roll(10), roll(10), roll(10));
+  }
+  else if(dest==="allys_enemies") {
+    dest = allys_enemies(pj, roll(10));
+  }
+  else if(dest==="ally") {
+    dest = ally(pj, roll(10), roll(10), roll(10), roll(10), roll(10));
+  }
+  else if(dest==="enemy") {
+    dest = enemy(pj, roll(10), roll(10), roll(10), roll(10), roll(10), roll(10), roll(10));
+  }
+  else if(dest==="romance") {
+    dest = romance(pj, roll(10), roll(10));
+  }
+  else if(dest==="style") {
+    dest = style(pj, roll(10), roll(10), roll(10), roll(10));
+  }
+  else if(dest==="values") {
+    dest = values(pj, roll(10), roll(10), roll(10));
+  }
+  else if (dest==="Unknown") {
+    console.log("Something went wrong!");
+    dest = "Finished";
+  }
+  else {
+    dest = def_destination();
+  }
+}
+function step() {
+  if(dest=="region") {
+    dest = region(pj, document.getElementById("roll").value);
+  }
+  else if (dest==="nilfgaard_origin") {
+    dest = nilfgaard_origin(pj, document.getElementById("roll").value);
+  }
+  else if (dest==="nilfgaard_vassal") {
+    dest = nilfgaard_vassal(pj, document.getElementById("roll").value);
+  }
+  else if (dest==="northern_lands_origin") {
+    dest = northern_lands_origin(pj, document.getElementById("roll").value);
+  }
+  else if (dest==="elder_lands_origin") {
+    dest = elder_lands_origin(pj);
+  }
+  else if (dest==="family") {
+    dest = family(pj, document.getElementById("roll").value);
+  }
+  else if (dest==="parents") {
+    dest = parents(pj, document.getElementById("roll").value);
+  }
+  else if (dest==="family_fate") {
+    dest = family_fate(pj, document.getElementById("roll").value);
+  }
+  else if (dest==="parents_fate") {
+    dest = parents_fate(pj, document.getElementById("roll").value, document.getElementById("roll2").value);
+  }
+  else if (dest==="family_status") {
+    dest = family_status(pj, document.getElementById("roll").value);
+  }
+  else if (dest==="influential_friend") {
+    dest = influential_friend(pj, document.getElementById("roll").value);
+  }
+  else if (dest==="siblings") {
+    dest = siblings(pj, document.getElementById("roll").value);
+  }
+  else if (dest==="siblings_generation") {
+    dest = siblings_generation(pj, document.getElementById("roll").value, document.getElementById("roll2").value, document.getElementById("roll3").value, document.getElementById("roll4").value);
+  }
+  else if (dest==="life_events") {
+    dest = life_events(pj, document.getElementById("roll").value);
+    console.log(pj);
+  }
+  else if(dest==="venture_desventure") {
+    dest = venture_desventure(pj, roll(10), roll(10), roll(10));
+  }
+  else if(dest==="allys_enemies") {
+    dest = allys_enemies(pj, roll(10));
+  }
+  else if(dest==="ally") {
+    dest = ally(pj, roll(10), roll(10), roll(10), roll(10), roll(10));
+  }
+  else if(dest==="enemy") {
+    dest = enemy(pj, roll(10), roll(10), roll(10), roll(10), roll(10), roll(10), roll(10));
+  }
+  else if(dest==="romance") {
+    dest = romance(pj, roll(10), roll(10));
+  }
+  else if(dest==="style") {
+    dest = style(pj, roll(10), roll(10), roll(10), roll(10));
+  }
+  else if(dest==="values") {
+    dest = values(pj, roll(10), roll(10), roll(10));
+  }
+  else if (dest==="Unknown") {
+    console.log("Something went wrong!");
+    dest = "Finished";
+  }
+  else {
+    dest = def_destination();
+    document.getElementById("answer").innerHTML = pj.toString();
+  }
+  choices();
 }
 
 //var pj = new Pj("Teofanes", 8, 0, 52);
