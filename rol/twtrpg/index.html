@@ -2,23 +2,65 @@
   <head>
     <title>TWTRPG Unofficial character generator</title>
     <script src="main.js"></script>
+    <style>
+      #hdr {
+        background-color: #111;
+        color: white;
+        margin-top: 0px auto;
+        margin-left: 0px;
+        margin-right: 0px;
+        padding-left: 10px;
+        text-align: left;
+        padding-bottom: 10px;
+      }
+      h2 {
+        margin: 0px;
+      }
+      #main {
+        margin-top: 15px;
+        margin-left: 20%;
+        margin-right: 20%;
+      }
+      body {
+        margin: 0px;
+        padding: 0px;
+        background-color: #e8e8e8;
+  			font-family: sans-serif;
+      }
+      input[type=text] {
+        border: none;
+        border-bottom: 1px dashed;
+        background: transparent;
+        text-align: right;
+      }
+    </style>
   </head>
   <body>
+    <div id="hdr">
+      <h2>The Witcher tabletop RPG unofficial character generator</h2>
+      Use the <a href="https://www.drivethrurpg.com/product/248538/The-Witcher-Pen--Paper-RPG">manual</a> for reference
+    </div>
+    <div id="main">
     <form id="frm1">
-      Name: <input type="text" name="name"><br>
-      Race: <input type="radio" name="race" value="0" checked> Human
+      Name: <input type="text" name="name" value="Jose"><br>
+      Age: <input type="text" name="age" value="54"><br>
+      <input type="radio" name="race" value="0" checked> Human
       <input type="radio" name="race" value="1"> Dwarf
       <input type="radio" name="race" value="2"> Elf<br>
-      Class: <input type="radio" name="class" value="0"> Craftsman
-             <input type="radio" name="class" value="1"> Bard
-             <input type="radio" name="class" value="3" checked> Criminal
-             <input type="radio" name="class" value="4"> Doctor
-             <input type="radio" name="class" value="5"> Man at arms
-             <input type="radio" name="class" value="6"> Wizard
-             <input type="radio" name="class" value="7"> Trader
+      Class:<br>  <input type="radio" name="class" value="0"> Craftsman<br>
+             <input type="radio" name="class" value="1"> Bard<br>
+             <input type="radio" name="class" value="3" checked> Criminal<br>
+             <input type="radio" name="class" value="4"> Doctor<br>
+             <input type="radio" name="class" value="5"> Man at arms<br>
+             <input type="radio" name="class" value="6"> Wizard<br>
+             <input type="radio" name="class" value="7"> Trader<br>
              <input type="radio" name="class" value="8"> Priest<br>
-      Age: <input type="text" name="age"></form><button onclick="formGenerate()">randomize</button><button onclick="choices()">Step by step</button>
+      </form>
+      <hr>
+      <button onclick="formGenerate()">randomize</button>
+      <button onclick="choices()" style="float:right;">Step by step</button>
     <br>
     <div id="answer"></div>
+  </div>
   </body>
 </html>
