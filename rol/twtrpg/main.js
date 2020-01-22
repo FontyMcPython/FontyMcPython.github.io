@@ -10,14 +10,14 @@ var parentss = ["Your parents are alive", "Something happened to your parents"];
 var family_fates = [
   ["Your family was scattered to the winds by the wars and you have no idea where most of them are",
    "Your family was imprisoned for crimes or on trumped-up charges. You were the only one to escape. You may want to free them...or maybe not",
-   "Your family house was cursed and now either crops won’t grow or specters roam the halls. It became too dangerous for you to stay in this home",
-   "With so many wars your family’s livelihood was destroyed. Your family turned to crime to survive",
+   "Your family house was cursed and now either crops won't grow or specters roam the halls. It became too dangerous for you to stay in this home",
+   "With so many wars your family's livelihood was destroyed. Your family turned to crime to survive",
    "Your family accumulated a huge debt through gambling or favors from others. You need money desperately",
    "Your family has fallen into a feud with another family. You may not even remember why this feud started in the first place",
    "Due to some action or inaction your family has become hated in your home town and now no one there wants to have anything to do with them",
    "One day everything you had was ripped away by a bandit mob. Your family was massacred, leaving you entirely alone",
    "Your family has a deep, dark secret that if discovered would ruin you all completely. You can decide what this secret is, or the Game Master can decide",
-   "Your family has come to despise each other. No one you grew up with will talk with each other any more and you’re lucky to get a passing hello from your siblings"],
+   "Your family has come to despise each other. No one you grew up with will talk with each other any more and you're lucky to get a passing hello from your siblings"],
   ["Your family was indentured for crimes against the Empire or on trumped-up charges. Only you escaped",
    "Your family was exiled to the Korath Desert and you likely spent most of your early life struggling to survive in the deadly wasteland",
    "Your family was killed by a rogue mage who either had a vendetta against your family, or just wanted blood. Either way, you are alone",
@@ -27,176 +27,204 @@ var family_fates = [
    "Your family name was tarnished by a magic relative who flaunted their magical gift disgracefully like a Northern mage",
    "You disgraced your family in the eyes of the Empire. Something you did or failed to do has ruined your personal name and harmed your family",
    "Your family has a deep, dark secret that if discovered would destroy them and their name forever. You must protect this secret with your life",
-   "Your family was assassinated. They may have been in the way of someone’s plan or they may have been used to get at someone more powerful. Either way, your family is gone now"],
+   "Your family was assassinated. They may have been in the way of someone's plan or they may have been used to get at someone more powerful. Either way, your family is gone now"],
   ["Your family were marked as human sympathizers and are not particularly loved in their homeland",
-  "Your family was ostracized for dissenting opinions and now people won’t socialize with you or your family at all",
+  "Your family was ostracized for dissenting opinions and now people won't socialize with you or your family at all",
   "Your family died in the Northern Wars. They may have actually fought in the war, or were casualties of war who just happened to get in the way",
   "Your family has been caught in a feud for centuries. You may not remember why this feud started, but it is dire",
   "Your family was stripped of its title for some reason. You were evicted from your home and left scrambling to survive",
   "Your family turned to raiding human settlements early in your life to get food and perhaps strike back at the humans",
   "Your family house is haunted. Most likely this is because your home was the site of many, many deaths during the war against humans",
   "Your family has been split by a human in-law who was brought into your family by a sibling or relative. Some of your family like them and some hate them",
-  "Your family was killed by humans who thought they were Scoia’tael. They may have been slaughtered or hung with no court proceedings or trials",
-  "Your family is descended from an infamous traitor. It taints your family’s interactions with others of the elder races and has made living in the elderland difficult"]
+  "Your family was killed by humans who thought they were Scoia'tael. They may have been slaughtered or hung with no court proceedings or trials",
+  "Your family is descended from an infamous traitor. It taints your family's interactions with others of the elder races and has made living in the elderland difficult"]
 ];
 var parents_fates = [
-  ["One or more of your parents were killed in the Northern Wars. Most likely your father, but it is also possible that your mother fought or was a casualty",
-  "One or more of your parents left you in the wilderness to fend for yourself. Maybe they couldn’t afford to keep you; maybe you were an accident",
-  "One or more of your parents were cursed by a mage or due to the intense hatred of someone they encountered. The curse took their life",
-  "One or more of your parents sold you for coin, or perhaps traded you for some goods or service. Your parents needed the money more than you",
-  "One or more of your parents joined a gang. You saw this gang often and were sometimes forced to work with them",
-  "One or more of your parents were killed by monsters. It is your decision as to what they may have fallen prey to",
-  "One or more of your parents were falsely executed. They may have been a scapegoat for something or just in the wrong place",
-  "One or more of your parents died of a plague. There was nothing that could be done but try to ease their passing",
-  "One or more of your parents defected to Nilfgaard. They may have been given a deal for information or they may just have jumped the border",
-  "One or more of your parents were kidnapped by nobles. Likely it was your mother, who attracted the attention of a local lord or his son"
+  ["Your %PARENT% %PAST% killed in the Northern Wars.",
+  "Your %PARENT% left you in the wilderness to fend for yourself. Maybe %PRONOUN% couldn't afford to keep you; maybe you were an accident",
+  "Your %PARENT% %PAST% cursed by a mage or due to the intense hatred of someone %PRONOUN% encountered. The curse took %POSSESSIVE% life",
+  "Your %PARENT% sold you for coin, or perhaps traded you for some goods or service. Your parents needed the money more than you",
+  "Your %PARENT% joined a gang. You saw this gang often and were sometimes forced to work with them",
+  "Your %PARENT% %PAST% killed by monsters (It is your decision as to what %PRONOUN% may have fallen prey to)",
+  "Your %PARENT% %PAST% falsely executed. %PRONOUN% may have been a scapegoat for something or just in the wrong place",
+  "Your %PARENT% died of a plague. There was nothing that could be done but try to ease %POSSESSIVE% passing",
+  "Your %PARENT% defected to Nilfgaard. %PRONOUN% may have been given a deal for information or %PRONOUN% may just have jumped the border",
+  "Your %PARENT% %PAST% kidnapped by nobles."
 ],
   ["Your father died in one of the Northern Wars. He may have already been in the military or he may have been conscripted into service during that war",
-  "One or more of your parents were poisoned. This may have been the work of a professional rival, or it may have been to get your parents out of the way",
-  "The secret police took your parent or parents for ‘questioning.’ The next week their bodies were found hung in the streets of the city",
-  "One or more of your parents were killed by a rogue mage. Most likely they tried to turn the mage in question in to the Empire and paid the price",
-  "One or more of your parents were imprisoned for unlawful magic. Maybe they actually commited the crime or maybe it was a setup",
-  "One or more of your parents were exiled to the Korath Desert. Likely they committed a major crime but killing them would cause trouble",
-  "One or more of your parents were cursed by a mage. The mage likely had a vendetta against them",
-  "Your parents simply left you one day. You may not even know why they did it. One day your parents just disappeared",
-  "One or more of your parents were enslaved. They either commited a crime against the Empire or were set up by a rival",
-  "One or more of your parents were sent to the North as double agents. You likely don’t even know where they are now, but they’re serving the Emperor"],
-  ["One or more of your parents were accused of being Scoia’tael. The people around you give your parents sidelong glances",
-  "One or more of your parents turned on your own people and sold out the elder races to the humans. Your parents are unwelcome in your homeland",
-  "One or more of your parents killed themselves out of despair. With no hope of regaining the glory of the past, they gave up and ended it",
-  "While traveling, one or more of your parents fell prey to human racism. They died in a pogrom and their bodies were displayed on pikes",
-  "One or more of your parents have become obssessed with regaining the former glory of their race. They sacrifice everything for this cause",
-  "One or more of your parents were exiled from your homeland. There are many possible reasons, from crime to dissenting opinons",
-  "One or more of your parents were cursed. You can decide what this curse is or, the Game Master can decide",
-  "Your parents gave you to another family so that you could survive, because they couldn’t care for you",
-  "One or more of your parents joined the Scoia’tael in an attempt to get revenge on the humans who they see as ruining their lives",
-  "One or more of your parents died in an ‘accident’. Most likely they made a powerful enemy that finally found a way to get rid of them"]
+  "Your %PARENT% %PAST% poisoned. This may have been the work of a professional rival, or it may have been to get your parents out of the way",
+  "The secret police took your %PARENT% for 'questioning.' The next week %POSSESSIVE% %BODY% %PAST% found hung in the streets of the city",
+  "Your %PARENT% %PAST% killed by a rogue mage. Most likely %PRONOUN% tried to turn the mage in question in to the Empire and paid the price",
+  "Your %PARENT% %PAST% imprisoned for unlawful magic. Maybe %PRONOUN% actually commited the crime or maybe it was a setup",
+  "Your %PARENT% %PAST% exiled to the Korath Desert. Likely %PRONOUN% committed a major crime but killing %ACCUSATIVE% would cause trouble",
+  "Your %PARENT% %PAST% cursed by a mage. The mage likely had a vendetta against %ACCUSATIVE%",
+  "Your %PARENT% simply left you one day. You may not even know why %PRONOUN% did it. One day your %PARENT% just disappeared",
+  "Your %PARENT% %PAST% enslaved. %PRONOUN% either commited a crime against the Empire or %PAST% set up by a rival",
+  "Your %PARENT% %PAST% sent to the North as %DOUBLE_AGENT%. You likely don't even know where %PRONOUN% %PRESENT% now, but %PRONOUN% %PRESENT% serving the Emperor"],
+  ["Your %PARENT% %PAST% accused of being Scoia'tael. The people around you give your parents sidelong glances",
+  "Your %PARENT% turned on your own people and sold out the elder races to the humans. Your parents are unwelcome in your homeland",
+  "Your %PARENT% killed %HIMSELF% out of despair. With no hope of regaining the glory of the past, %PRONOUN% gave up and ended it",
+  "While traveling, your %PARENT% fell prey to human racism. %PRONOUN% died in a pogrom and %POSSESSIVE% %BODY% %PAST% displayed on a pike",
+  "Your %PARENT% %HAVE% become obssessed with regaining the former glory of your race. %PRONOUN% sacrificed everything for this cause",
+  "Your %PARENT% %PAST% exiled from your homeland. There are many possible reasons, from crime to dissenting opinons",
+  "Your %PARENT% %PAST% cursed (You can decide what this curse is or, the Game Master can decide)",
+  "Your parents gave you to another family so that you could survive, because they couldn't care for you",
+  "Your %PARENT% joined the Scoia'tael in an attempt to get revenge on the humans who %PRONOUN% see as ruining %POSSESSIVE% %LIFE%",
+  "Your %PARENT% died in an 'accident'. Most likely %PRONOUN% made a powerful enemy that finally found a way to get rid of %ACCUSATIVE%"]
 ];
-var which_parents = ["father", "mother", "parents"];
+var which_parents = [{"PARENT": "father",
+                      "PAST": "was",
+                      "ACCUSATIVE": "him",
+                      "POSSESSIVE": "his",
+                      "PRONOUN": "he",
+                      "BODY": "body",
+                      "DOUBLE_AGENT": "a double agent",
+                      "LIFE": "life",
+                      "PRESENT": "is"
+                      },
+                      {"PARENT": "mother",
+                      "PAST": "was",
+                      "ACCUSATIVE": "her",
+                      "POSSESSIVE": "her",
+                      "PRONOUN": "she",
+                      "BODY": "body",
+                      "DOUBLE_AGENT": "a double agent",
+                      "LIFE": "life",
+                      "PRESENT": "is"
+                    },{"PARENT": "parents",
+                                            "PAST": "were",
+                                            "ACCUSATIVE": "them",
+                                            "POSSESSIVE": "their",
+                                            "PRONOUN": "they",
+                                            "BODY": "bodies",
+                                            "DOUBLE_AGENT": "double agents",
+                                            "LIFE": "lives",
+                                            "PRESENT": "are"
+                                            }];
 var family_statuss = [
   [
-    ["Aristocracy. You grew up in a noble manor with servants to wait on you, but you were always expected to behave and impress",
+    ["You grew up in a noble manor with servants to wait on you, but you were always expected to behave and impress",
      "Paper of Nobility (+2 Reputation)"],
-    ["Adopted by a Mage. You were given to a mage at ayoung age. You lived in comfort but barely saw your caretaker, who was always busy.",
+    ["You were given to a mage at ayoung age. You lived in comfort but barely saw your caretaker, who was always busy.",
      "A Chronicle (+1 Education)"],
-    ["Knights. You grew up in a manor where you learned to be a proper lady or lord. Your fate was set from birth",
+    ["You grew up in a manor where you learned to be a proper lady or lord. Your fate was set from birth",
     "Personal Heraldry (+1 Reputation)"],
-    ["Merchant Family. You grew up among merchants and you were always surrounded by yelling, haggling, and money",
+    ["You grew up among merchants and you were always surrounded by yelling, haggling, and money",
      "2 Acquaintances"],
-    ["Artisan Family. You grew up in an artisan’s workshop. Your days were filled with the incessant sounds of creation, and often long",
+    ["You grew up in an artisan's workshop. Your days were filled with the incessant sounds of creation, and often long",
     "3 Common Diagrams/Formulae"],
-    ["Entertainer Family. You grew up with a band of performers. You may have traveled or you may have performed at a theater",
+    ["You grew up with a band of performers. You may have traveled or you may have performed at a theater",
       "1 Instrument & 1 Friend"],
-    ["Peasant Family. You grew up on a farm in the countryside. You didn’t have much to your name and your life was simple, but dangerous",
+    ["You grew up on a farm in the countryside. You didn't have much to your name and your life was simple, but dangerous",
      "A Lucky Token (+1 Luck)"]
   ],
   [
-    ["Aristocracy. You grew up in a manor, training to be well-versed in the world of the court. The luxury was just your incentive",
+    ["You grew up in a manor, training to be well-versed in the world of the court. The luxury was just your incentive",
     "Paper of Nobility (+2 Reputation)"],
-    ["High Clergy. You were raised among the clergy of the Great Sun. You grew up pious and always aware that the Church would guide you",
+    ["You were raised among the clergy of the Great Sun. You grew up pious and always aware that the Church would guide you",
     "A Holy Symbol (+1 Courage)"],
-    ["Knights. You grew up knowing that your duty was to the Emperor, and that all of your luxury was a reward for your eventual service",
+    ["You grew up knowing that your duty was to the Emperor, and that all of your luxury was a reward for your eventual service",
     "Personal Heraldry (+1 Reputation)"],
-    ["Artisan Family. You grew up in an artisan’s shop, learning to craft products for sale around the world. You learned the value of quality",
+    ["You grew up in an artisan's shop, learning to craft products for sale around the world. You learned the value of quality",
     "3 Common Diagrams/Formula"],
-    ["Merchant Family. You grew up selling products all around the Empire. You saw all kinds exotic of goods from all around the world",
+    ["You grew up selling products all around the Empire. You saw all kinds exotic of goods from all around the world",
     "2 Acquaintances"],
-    ["Born into Servitude. You were born into servitude and lived in simple quarters. You owned very little and toiled often",
+    ["You were born into servitude and lived in simple quarters. You owned very little and toiled often",
     "A trained bird or serpent"],
-    ["Peasant Family. You grew up on one of the thousands of farms across the Empire. You had little to your name but life was simple",
+    ["You grew up on one of the thousands of farms across the Empire. You had little to your name but life was simple",
     "A Lucky Token (+1 Luck)"]
   ],
   [
-    ["Aristocracy. You grew up in a palace and were constantly reminded of the glory of the past. You were expected to live up to the legacy",
+    ["You grew up in a palace and were constantly reminded of the glory of the past. You were expected to live up to the legacy",
      "Paper of Nobility (+2 Reputation)"],
-    ["Noble Warrior. You grew up as a noble warrior’s child, expected to rise to your family’s reputation and to never dishonor your heritage",
+    ["You grew up as a noble warrior's child, expected to rise to your family's reputation and to never dishonor your heritage",
      "Personal Heraldry (+1 Reputation)"],
-    ["Merchants. You grew up among traveling merchants. Life was difficult sometimes but non-human crafts are always valuable",
+    ["You grew up among traveling merchants. Life was difficult sometimes but non-human crafts are always valuable",
     "2 Acquaintances"],
-    ["Scribe Family. You grew up as the child of scribes, recording and protecting as much elderfolk history as possible",
+    ["You grew up as the child of scribes, recording and protecting as much elderfolk history as possible",
     "A Chronicle (+1 Education)"],
-    ["Entertainers. You grew up singing songs and performing plays. You worked backstage, helped write songs, and fixed instruments",
+    ["You grew up singing songs and performing plays. You worked backstage, helped write songs, and fixed instruments",
      "1 Instrument & 1 Friend"],
-    ["Artisan Family. You grew up in a family of artisans, visiting ancient palaces for inspiration and spending hours every day on projects",
+    ["You grew up in a family of artisans, visiting ancient palaces for inspiration and spending hours every day on projects",
      "3 Common Diagrams/Formulae"],
-    ["Lowborn Family. You grew up in a lowborn family, tending to the manors of others or working small jobs around your home city",
+    ["You grew up in a lowborn family, tending to the manors of others or working small jobs around your home city",
      "A Lucky Token (+1 Luck)"]
   ]
 ];
 var influential_friends = [
   [
-    ["A Church. You grew up with influence from your local religion and spent hours a day at church",
+    ["You grew up with influence from your local religion and spent hours a day at church",
      "Gear: A Holy Text"],
-    ["An Artisan. Your greatest influence was an artisan who taught you to appreciate art and skill",
+    ["Your greatest influence was an artisan who taught you to appreciate art and skill",
     "Gear: A Token You Made"],
-    ["A Count. Your greatest influence was a count or countess who taught you how to compose yourself",
+    ["Your greatest influence was a count or countess who taught you how to compose yourself",
      "Gear: A Silver Ring"],
-    ["A Mage. Your greatest influence was a mage who taught you not to fear magic and to always question",
+    ["Your greatest influence was a mage who taught you not to fear magic and to always question",
     "Gear: A Small Pendant"],
-    ["A Witch. Your greatest influence was a village witch who taught you the importance of knowledge",
+    ["Your greatest influence was a village witch who taught you the importance of knowledge",
      "Gear: A Black Magic Doll"],
-    ["A Cursed Person. Your greatest influence was a cursed person who taught you to never judge others too harshly",
+    ["Your greatest influence was a cursed person who taught you to never judge others too harshly",
     "Gear: A Carved Totem"],
-    ["An Entertainer. Your greatest influence was an entertainer who taught you plenty about showmanship",
+    ["Your greatest influence was an entertainer who taught you plenty about showmanship",
      "Gear: A Playbill or Ticket"],
-    ["A Merchant. Your greatest influence was a merchant who taught you how to be shrewd and clever",
+    ["Your greatest influence was a merchant who taught you how to be shrewd and clever",
     "Gear: A Coin You Earned"],
-    ["A Criminal. Your greatest influence was a criminal who taught you how to take care of yourself",
+    ["Your greatest influence was a criminal who taught you how to take care of yourself",
      "Gear: A Mask"],
-    ["A Man At Arms. Your greatest influence was a soldier who taught you how to defend yourself",
+    ["Your greatest influence was a soldier who taught you how to defend yourself",
     "Gear: A Battle Trophy"]
   ],
   [
-    ["The Cult of the Great Sun. Your greatest influence was the Church. You spent years learning chants and rituals",
+    ["Your greatest influence was the Church. You spent years learning chants and rituals",
     "Gear: A Ceremonial Mask"],
-    ["An Outcast. Your greatest influence was a social outcast who taught you to always question society",
+    ["Your greatest influence was a social outcast who taught you to always question society",
     "Gear: A Bright Colorful Badge"],
-    ["A Count. Your greatest influence was a count who taught you how to lead and instill order",
+    ["Your greatest influence was a count who taught you how to lead and instill order",
     "Gear: A Silver Necklace"],
-    ["A Mage. Your greatest influence was a mage who taught you the importance of order and caution",
+    ["Your greatest influence was a mage who taught you the importance of order and caution",
     "Gear: An Emblem"],
-    ["A Solicitor. Your greatest influence was an imperial detective. You spent a lot of time solving mysteries",
+    ["Your greatest influence was an imperial detective. You spent a lot of time solving mysteries",
     "Gear: A Magnifying Lens"],
-    ["A Mage Hunter. Your greatest influence was a mage hunter who taught you to be cautious of magic and mages",
+    ["Your greatest influence was a mage hunter who taught you to be cautious of magic and mages",
     "Gear: A Ring with Dimeritium"],
-    ["A Man At Arms. Your greatest influence was a soldier who shared stories of danger and excitement",
+    ["Your greatest influence was a soldier who shared stories of danger and excitement",
     "Gear: A Trophy of Battle"],
-    ["An Artisan. Your greatest influence was an artisan who taught you to appreciate skill and precision",
+    ["Your greatest influence was an artisan who taught you to appreciate skill and precision",
     "Gear: A Trinket You Made"],
-    ["A Sentient Monster. Your greatest influence was a sentient monster that taught you that not all monsters are evil",
+    ["Your greatest influence was a sentient monster that taught you that not all monsters are evil",
     "Gear: A Strange Totem"],
-    ["An Entertainer. Your greatest influence was an entertainer who taught you to express yourself",
+    ["Your greatest influence was an entertainer who taught you to express yourself",
     "Gear: A Token from a Fan"]
   ],
   [
-    ["A Human. Your greatest influence was a human who taught you that sometimes racism is unfounded.",
+    ["Your greatest influence was a human who taught you that sometimes racism is unfounded.",
     "Gear: A Straw Doll"],
-    ["An Artisan. Your greatest influence was an artisan who taught you to appreciate great elderfolk art",
+    ["Your greatest influence was an artisan who taught you to appreciate great elderfolk art",
     "Gear: A Small Token You Made"],
-    ["A Noble Warrior. Your greatest influence was a War Dancer or a Mahakaman Defender who taught you honor",
+    ["Your greatest influence was a War Dancer or a Mahakaman Defender who taught you honor",
     "Gear: A Token of Battle"],
-    ["A Highborn. Your greatest influence was a highborn who taught you pride and how to comport yourself",
+    ["Your greatest influence was a highborn who taught you pride and how to comport yourself",
     "Gear: A Signet Ring"],
-    ["An Entertainer. Your greatest influence was an entertainer who taught you the importance of happiness and beauty",
+    ["Your greatest influence was an entertainer who taught you the importance of happiness and beauty",
     "Gear: A Playbill or Ticket"],
-    ["A Raider. Your greatest influence was a raider who taught you that you have the right to take what you need",
+    ["Your greatest influence was a raider who taught you that you have the right to take what you need",
     "Gear: A Satchel"],
-    ["A Sage. Your greatest influence was a sage who taught you about the importance of elderfolk history",
+    ["Your greatest influence was a sage who taught you about the importance of elderfolk history",
     "Gear: A Book of Tales"],
-    ["A Criminal. your greatest influence was a criminal who taught you to follow your own rules",
+    ["Your greatest influence was a criminal who taught you to follow your own rules",
     "Gear: A Mask"],
-    ["A Hunter. Your greatest influence was a hunter who taught you how to survive in the wilderness",
+    ["Your greatest influence was a hunter who taught you how to survive in the wilderness",
     "Gear: A Trophy of a Hunt"],
-    ["A Lowland Farmer. Your greatest influence was a lowland farmer who taught you how to live happily",
-    "Gear: A Farmer’s Spade"]
+    ["Your greatest influence was a lowland farmer who taught you how to live happily",
+    "Gear: A Farmer's Spade"]
   ]
 ];
 
 var siblingss = [
   ["brother", "sister"],
   ["younger", "older", "twin"],
-  ["Wants you dead", "Can't stand you", "Jealous of you", "No feelings about you", "Likes you", "Looks up to you", "Possessive of you"],
-  ["Shy", "Aggresive", "Kind", "Strange", "Thoughtful", "Talkative", "Romantic", "Stern", "Depressive", "Immature"]
+  ["wants you dead", "can't stand you", "is jealous of you", "has no feelings about you", "likes you", "looks up to you", "is possessive of you"],
+  ["shy", "aggresive", "kind", "strange", "thoughtful", "talkative", "romantic", "stern", "depressive", "immature"]
 ];
 var life_events_event = ["Fortune or Misfortune", "Allies and Enemies", "Romance"];
 var fortune_misfortunes = [
@@ -217,8 +245,8 @@ var fortune_misfortunes = [
     "Imprisonment. Something you did (or a false acusation) had you imprisoned for 1d10 months",
     "Addiction. You contracted an addiction. You can choose. See the sidebar for addiction rules",
     "Loover, Friend or Relative Killed. Roll 1d10. 1-5: They died in an accident, 6-8: They were murdered by monsters, 9-10: They were murdered by bandits",
-    "False Accusation. Roll 1d10. 1-3: The accusation is theft, 4-5: It’s cowardice or betrayal, 6-8: It’s murder,9: It’s rape, 10: It’s illegal witchcraf",
-    "Hunted by the Law. Roll 1d10. 1-3: It’s just a few of guards, 4-6: It’s an entire small town, 7-8: It’s a major city, 9-10: A whole kingdom is after you",
+    "False Accusation. Roll 1d10. 1-3: The accusation is theft, 4-5: It's cowardice or betrayal, 6-8: It's murder,9: It's rape, 10: It's illegal witchcraf",
+    "Hunted by the Law. Roll 1d10. 1-3: It's just a few of guards, 4-6: It's an entire small town, 7-8: It's a major city, 9-10: A whole kingdom is after you",
     "Betrayal. Roll 1d10. 1-3: You are being blackmailed, 4-7: A secret was exposed, 8-10: You were betrayed by someone very close to you",
     "Accident. Roll 1d10. 1-4: You were disfigured. Change your social standing to feared, 5-6: You were healing for 1d10 months, 7-8: You lost a 1d10 months of memory from that year, 9-10: You suffer from horrible nightmares (7 in 10 chance each time you sleep)",
     "Mental or Physical Incapacitation. Roll 1d10. 1-3: You were poisoned; permanently lose 5 HP, 4-7: You suffer from anxiety attacks and must make Stun saves (every 5 rounds) in times of stress, 8-10: You have a major psychosis. You hear voices and are violent, irrational, and depressive. The GM controls these voices",
@@ -240,27 +268,47 @@ function Pj(name, clase, race, age){
   this.race = race;
   this.age = age;
   this.toString = function(){
-    var bio = "";
+    var bio = "You are ";
     // NAME AGE RACE CLASS
     bio = bio + this.name + " (" + this.age + ")"
     if(this.race == 3 ) bio = bio + ", a " + races[this.race] + " ";
     else if (this.race == 2) bio = bio + ", an " + races[this.race] + " " + classes[this.clase] + " ";
     else bio = bio +  ", a " + races[this.race] + " " + classes[this.clase] + " ";
     bio = bio + "from ";
+    // ORIGIN REGION and PERK
     if (this.origin == 0) bio = bio + northern_lands_origins[this.region][0] + ", " + origins[this.origin] + " ( " + northern_lands_origins[this.region][1] + ").";
     if (this.origin == 1) bio = bio + nilfgaard_origins[this.region][0] + ", " + origins[this.origin] + " ( " + nilfgaard_origins[this.region][1] + ").";
     if (this.origin == 2) bio = bio + elder_lands_origins[this.region][0] + ", " + origins[this.origin] + " ( " + elder_lands_origins[this.region][1] + ").";
+    // FAMILY FATE
     if (this.family == 1) {
       bio = bio + " " + family_fates[this.origin][this.family_fate] + ".";
     }
+    // PARENTS FATE
     if (this.parents == 1 || this.family == 1) {
-      bio = bio + " " + parents_fates[this.origin][this.parents_fate] + ".";
+      var par_fate = parents_fates[this.origin][this.parents_fate];
+      par_fate = par_fate.replace(/%PARENT%/gi, which_parents[this.which_parent].PARENT);
+      par_fate = par_fate.replace(/%PRONOUN%/gi, which_parents[this.which_parent].PRONOUN);
+      par_fate = par_fate.replace(/%POSSESSIVE%/gi, which_parents[this.which_parent].POSSESSIVE);
+      par_fate = par_fate.replace(/%PAST%/gi, which_parents[this.which_parent].PAST);
+      par_fate = par_fate.replace(/%BODY%/gi, which_parents[this.which_parent].BODY);
+      par_fate = par_fate.replace(/%PRESENT%/gi, which_parents[this.which_parent].PRESENT);
+      par_fate = par_fate.replace(/%ACCUSATIVE%/gi, which_parents[this.which_parent].ACCUSATIVE);
+      par_fate = par_fate.replace(/%DOUBLE_AGENT%/gi, which_parents[this.which_parent].DOUBLE_AGENT);
+      bio = bio + " " + par_fate + ".";
     }
+    // Family status
     bio = bio + " " + family_statuss[this.origin][this.family_status][0] + " ( " + family_statuss[this.origin][this.family_status][1] + ").";
-    bio = bio + " Most influential friend: " + influential_friends[this.origin][this.influential_friend][0] + " ( " + influential_friends[this.origin][this.influential_friend][1] + ").";
-    bio = bio + " You have " + this.siblings + " siblings.";
+    // Influential friend
+    bio = bio + influential_friends[this.origin][this.influential_friend][0] + " ( " + influential_friends[this.origin][this.influential_friend][1] + ").";
+    // Siblings
+    if (this.siblings == 0) bio = bio + " You have " + "no" + " siblings.";
+    else if (this.siblings == 1) bio = bio + " You have one sibling, a ";
+    else bio = bio + "<br>You have " + this.siblings + " siblings. A ";
     for(let i=0; i<this.siblings; i++) {
-      bio = bio + " A " + siblingss[3][this.siblings_list[i][3]] + " " + siblingss[1][this.siblings_list[i][1]] + " " + siblingss[0][this.siblings_list[i][0]] + " who " + siblingss[2][this.siblings_list[i][2]] + ".";
+      bio = bio + siblingss[3][this.siblings_list[i][3]] + " " + siblingss[1][this.siblings_list[i][1]] + " " + siblingss[0][this.siblings_list[i][0]] + " who " + siblingss[2][this.siblings_list[i][2]];
+      if( i < this.siblings - 2) bio= bio + ", a ";
+      else if(i == this.siblings - 2) bio = bio + " and a ";
+      else bio = bio + ".";
     }
     return bio;
   }
@@ -373,8 +421,11 @@ function parents_fate(pj, roll, roll2) {
   if(pj.origin == 1 && pj.parents_fate == 0) {
     if(roll2 <= 4) pj.which_parent = 0;
     else if (roll2 > 4 && roll2 <= 8) pj.which_parent = 1;
-    else pj.which_parent = 1;;
+    else pj.which_parent = 2;
   }
+  if(roll2 <= 4) pj.which_parent = 0;
+  else if (roll2 > 4 && roll2 <= 8) pj.which_parent = 1;
+  else pj.which_parent = 2;
   return destination;
 }
 
@@ -637,50 +688,50 @@ var dest = "region";
 function roll_item(item) {
   document.getElementById(item).value = roll(10).toString();
 }
-
+var accumulation = "";
 function choices() {
   if(pj==="Null") pj = new Pj(document.forms[0].name.value, parseInt(document.forms[0].class.value), parseInt(document.forms[0].race.value), parseInt(document.forms[0].age.value));
   if(pj.race != 0) dest ="family";
   if(dest=="region") {
-    document.getElementById("answer").innerHTML ="Region: <input type='text' id='roll'><button onclick='roll_item(\"roll\")'>1d10</button><button onclick='step()'>Next</button>";
+    document.getElementById("answer").innerHTML =accumulation + "Region: <input type='text' id='roll'><button onclick='roll_item(\"roll\")'>1d10</button><button onclick='step()'>Next</button>";
   }
   else if (dest==="nilfgaard_origin") {
-    document.getElementById("answer").innerHTML ="Nilfgaard Origin: <input type='text' id='roll'><button onclick='roll_item(\"roll\")'>1d10</button><button onclick='step()'>Next</button>";
+    document.getElementById("answer").innerHTML =accumulation + "Nilfgaard Origin: <input type='text' id='roll'><button onclick='roll_item(\"roll\")'>1d10</button><button onclick='step()'>Next</button>";
   }
   else if (dest==="nilfgaard_vassal") {
-    document.getElementById("answer").innerHTML ="Nilfgaard Vassal: <input type='text' id='roll'><button onclick='roll_item(\"roll\")'>1d10</button><button onclick='step()'>Next</button>";
+    document.getElementById("answer").innerHTML =accumulation + "Nilfgaard Vassal: <input type='text' id='roll'><button onclick='roll_item(\"roll\")'>1d10</button><button onclick='step()'>Next</button>";
   }
   else if (dest==="northern_lands_origin") {
-    document.getElementById("answer").innerHTML ="Northern Lands origin: <input type='text' id='roll'><button onclick='roll_item(\"roll\")'>1d10</button><button onclick='step()'>Next</button>";
+    document.getElementById("answer").innerHTML =accumulation + "Northern Lands origin: <input type='text' id='roll'><button onclick='roll_item(\"roll\")'>1d10</button><button onclick='step()'>Next</button>";
   }
   else if (dest==="elder_lands_origin") {
   }
   else if (dest==="family") {
-    document.getElementById("answer").innerHTML ="Family: <input type='text' id='roll'><button onclick='roll_item(\"roll\")'>1d10</button><button onclick='step()'>Next</button>";
+    document.getElementById("answer").innerHTML =accumulation + "Family: <input type='text' id='roll'><button onclick='roll_item(\"roll\")'>1d10</button><button onclick='step()'>Next</button>";
   }
   else if (dest==="parents") {
-    document.getElementById("answer").innerHTML ="Parents: <input type='text' id='roll'><button onclick='roll_item(\"roll\")'>1d10</button><button onclick='step()'>Next</button>";
+    document.getElementById("answer").innerHTML =accumulation + "Parents: <input type='text' id='roll'><button onclick='roll_item(\"roll\")'>1d10</button><button onclick='step()'>Next</button>";
   }
   else if (dest==="family_fate") {
-    document.getElementById("answer").innerHTML ="Family fate: <input type='text' id='roll'><button onclick='roll_item(\"roll\")'>1d10</button><button onclick='step()'>Next</button>";
+    document.getElementById("answer").innerHTML =accumulation + "Family fate: <input type='text' id='roll'><button onclick='roll_item(\"roll\")'>1d10</button><button onclick='step()'>Next</button>";
   }
   else if (dest==="parents_fate") {
-    document.getElementById("answer").innerHTML ="Parents fate: <input type='text' id='roll'><button onclick='roll_item(\"roll\")'>1d10</button><br>Which parent: <input type='text' id='roll2'><button onclick='roll_item(\"roll2\")'>1d10</button><button onclick='step()'>Next</button>";
+    document.getElementById("answer").innerHTML =accumulation + "Parents fate: <input type='text' id='roll'><button onclick='roll_item(\"roll\")'>1d10</button><br>Which parent: <input type='text' id='roll2'><button onclick='roll_item(\"roll2\")'>1d10</button><button onclick='step()'>Next</button>";
   }
   else if (dest==="family_status") {
-    document.getElementById("answer").innerHTML ="Family status: <input type='text' id='roll'><button onclick='roll_item(\"roll\")'>1d10</button><button onclick='step()'>Next</button>";
+    document.getElementById("answer").innerHTML =accumulation + "Family status: <input type='text' id='roll'><button onclick='roll_item(\"roll\")'>1d10</button><button onclick='step()'>Next</button>";
   }
   else if (dest==="influential_friend") {
-    document.getElementById("answer").innerHTML ="Influential friend: <input type='text' id='roll'><button onclick='roll_item(\"roll\")'>1d10</button><button onclick='step()'>Next</button>";
+    document.getElementById("answer").innerHTML =accumulation + "Influential friend: <input type='text' id='roll'><button onclick='roll_item(\"roll\")'>1d10</button><button onclick='step()'>Next</button>";
   }
   else if (dest==="siblings") {
-    document.getElementById("answer").innerHTML ="Siblings: <input type='text' id='roll'><button onclick='roll_item(\"roll\")'>1d10</button><button onclick='step()'>Next</button>";
+    document.getElementById("answer").innerHTML =accumulation + "Siblings: <input type='text' id='roll'><button onclick='roll_item(\"roll\")'>1d10</button><button onclick='step()'>Next</button>";
   }
   else if (dest==="siblings_generation") {
-    document.getElementById("answer").innerHTML ="sibling<br>Gender: <input type='text' id='roll'><button onclick='roll_item(\"roll\")'>1d10</button><br>Age: <input type='text' id='roll2'><button onclick='roll_item(\"roll2\")'>1d10</button><br>Feelings: <input type='text' id='roll3'><button onclick='roll_item(\"roll3\")'>1d10</button><br>Personality: <input type='text' id='roll4'><button onclick='roll_item(\"roll4\")'>1d10</button><button onclick='step()'>Next</button>";
+    document.getElementById("answer").innerHTML =accumulation + "sibling<br>Gender: <input type='text' id='roll'><button onclick='roll_item(\"roll\")'>1d10</button><br>Age: <input type='text' id='roll2'><button onclick='roll_item(\"roll2\")'>1d10</button><br>Feelings: <input type='text' id='roll3'><button onclick='roll_item(\"roll3\")'>1d10</button><br>Personality: <input type='text' id='roll4'><button onclick='roll_item(\"roll4\")'>1d10</button><button onclick='step()'>Next</button>";
   }
   else if (dest==="life_events") {
-    document.getElementById("answer").innerHTML ="Life event: <input type='text' id='roll'><button onclick='roll_item(\"roll\")'>1d10</button><button onclick='step()'>Next</button>";
+    document.getElementById("answer").innerHTML =accumulation + "Life event: <input type='text' id='roll'><button onclick='roll_item(\"roll\")'>1d10</button><button onclick='step()'>Next</button>";
   }
   else if(dest==="venture_desventure") {
     dest = venture_desventure(pj, roll(10), roll(10), roll(10));
@@ -713,42 +764,58 @@ function choices() {
 }
 function step() {
   if(dest=="region") {
+    accumulation = accumulation + "Region: " + document.getElementById("roll").value + "<br>";
     dest = region(pj, document.getElementById("roll").value);
   }
   else if (dest==="nilfgaard_origin") {
+    accumulation = accumulation + "Nilfgaard origin: " + document.getElementById("roll").value + "<br>";
     dest = nilfgaard_origin(pj, document.getElementById("roll").value);
   }
   else if (dest==="nilfgaard_vassal") {
+    accumulation = accumulation + "Nilfgaard vassal: " + document.getElementById("roll").value + "<br>";
     dest = nilfgaard_vassal(pj, document.getElementById("roll").value);
   }
   else if (dest==="northern_lands_origin") {
+    accumulation = accumulation + "Northern lands origin: " + document.getElementById("roll").value + "<br>";
     dest = northern_lands_origin(pj, document.getElementById("roll").value);
   }
   else if (dest==="elder_lands_origin") {
     dest = elder_lands_origin(pj);
   }
   else if (dest==="family") {
+    accumulation = accumulation + "Family: " + document.getElementById("roll").value + "<br>";
     dest = family(pj, document.getElementById("roll").value);
   }
   else if (dest==="parents") {
+    accumulation = accumulation + "Parents: " + document.getElementById("roll").value + "<br>";
     dest = parents(pj, document.getElementById("roll").value);
   }
   else if (dest==="family_fate") {
+    accumulation = accumulation + "Family fate: " + document.getElementById("roll").value + "<br>";
     dest = family_fate(pj, document.getElementById("roll").value);
   }
   else if (dest==="parents_fate") {
+    accumulation = accumulation + "Parents fate: " + document.getElementById("roll").value + "<br>" + "Which one: " + document.getElementById("roll2").value + "<br>";
     dest = parents_fate(pj, document.getElementById("roll").value, document.getElementById("roll2").value);
   }
   else if (dest==="family_status") {
+    accumulation = accumulation + "Family status: " + document.getElementById("roll").value + "<br>";
     dest = family_status(pj, document.getElementById("roll").value);
   }
   else if (dest==="influential_friend") {
+    accumulation = accumulation + "Influential friend: " + document.getElementById("roll").value + "<br>";
     dest = influential_friend(pj, document.getElementById("roll").value);
   }
   else if (dest==="siblings") {
+    accumulation = accumulation + "Siblings: " + document.getElementById("roll").value + "<br>";
     dest = siblings(pj, document.getElementById("roll").value);
   }
   else if (dest==="siblings_generation") {
+    accumulation = accumulation + "Sibling: " + "<br>";
+    accumulation = accumulation + "&emsp; Gender: " + document.getElementById("roll").value + "<br>";
+    accumulation = accumulation + "&emsp; Age: " + document.getElementById("roll2").value + "<br>";
+    accumulation = accumulation + "&emsp; Feelings: " + document.getElementById("roll3").value + "<br>";
+    accumulation = accumulation + "&emsp; Personality: " + document.getElementById("roll4").value + "<br>";
     dest = siblings_generation(pj, document.getElementById("roll").value, document.getElementById("roll2").value, document.getElementById("roll3").value, document.getElementById("roll4").value);
   }
   else if (dest==="life_events") {
