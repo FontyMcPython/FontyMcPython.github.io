@@ -91,16 +91,16 @@ var which_parents = [{"PARENT": "father",
                       "DOUBLE_AGENT": "a double agent",
                       "LIFE": "life",
                       "PRESENT": "is"
-                    },{"PARENT": "parents",
-                                            "PAST": "were",
-                                            "ACCUSATIVE": "them",
-                                            "POSSESSIVE": "their",
-                                            "PRONOUN": "they",
-                                            "BODY": "bodies",
-                                            "DOUBLE_AGENT": "double agents",
-                                            "LIFE": "lives",
-                                            "PRESENT": "are"
-                                            }];
+                      },
+                      {"PARENT": "parents",
+                       "PAST": "were",
+                       "ACCUSATIVE": "them",
+                       "POSSESSIVE": "their",
+                       "PRONOUN": "they",
+                       "BODY": "bodies",
+                       "DOUBLE_AGENT": "double agents",
+                       "LIFE": "lives",
+                       "PRESENT": "are"}];
 var family_statuss = [
   [
     ["You grew up in a noble manor with servants to wait on you, but you were always expected to behave and impress",
@@ -268,7 +268,12 @@ function Pj(name, clase, race, age){
   this.race = race;
   this.age = age;
   this.toString = function(){
-    var bio = "You are ";
+    var bio = "<h3>" + this.name + " of ";
+    if (this.origin == 0) bio = bio + northern_lands_origins[this.region][0];
+    if (this.origin == 1) bio = bio + nilfgaard_origins[this.region][0];
+    if (this.origin == 2) bio = bio + elder_lands_origins[this.region][0];
+    bio = bio + "</h3>";
+    bio = bio + "You are ";
     // NAME AGE RACE CLASS
     bio = bio + this.name + " (" + this.age + ")"
     if(this.race == 3 ) bio = bio + ", a " + races[this.race] + " ";
