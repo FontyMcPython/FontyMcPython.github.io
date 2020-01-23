@@ -227,6 +227,7 @@ var siblingss = [
   ["shy", "aggresive", "kind", "strange", "thoughtful", "talkative", "romantic", "stern", "depressive", "immature"]
 ];
 var life_events_event = ["Fortune or Misfortune", "Allies and Enemies", "Romance"];
+var fortune_or_misfortune = ["fortune", "misfortune"];
 var fortune_misfortunes = [
   [
     "Jackpot. Some major event or stroke of luck brought you 1d10x100 crowns",
@@ -253,6 +254,7 @@ var fortune_misfortunes = [
     "Cursed. You have been cursed. See the Curse section on pg.230 to determine the details"
   ]
 ];
+var allies_enemies = ["ally", "enemy"];
 var alliess = [
   ["male", "female"],
   ["a bounty hunter", "a mage", "a mentor or teacher", "a childhood friend", "a craftsman", "an old enemy", "a duke/duchess", "a priest/priestess", "a soldier", "a bard"],
@@ -263,6 +265,7 @@ var alliess = [
 
 // CHARACTER OBJECT
 function Pj(name, clase, race, age){
+  console.log(this);
   this.name = name;
   this.clase = clase;
   this.race = race;
@@ -273,7 +276,7 @@ function Pj(name, clase, race, age){
     if (this.origin == 1) bio = bio + nilfgaard_origins[this.region][0];
     if (this.origin == 2) bio = bio + elder_lands_origins[this.region][0];
     bio = bio + "</h3>";
-    bio = bio + "You are ";
+    bio = bio + "</p>You are ";
     // NAME AGE RACE CLASS
     bio = bio + this.name + " (" + this.age + ")"
     if(this.race == 3 ) bio = bio + ", a " + races[this.race] + " ";
@@ -308,12 +311,34 @@ function Pj(name, clase, race, age){
     // Siblings
     if (this.siblings == 0) bio = bio + " You have " + "no" + " siblings.";
     else if (this.siblings == 1) bio = bio + " You have one sibling, a ";
-    else bio = bio + "<br>You have " + this.siblings + " siblings. A ";
+    else bio = bio + "</p><p>You have " + this.siblings + " siblings. A ";
     for(let i=0; i<this.siblings; i++) {
       bio = bio + siblingss[3][this.siblings_list[i][3]] + " " + siblingss[1][this.siblings_list[i][1]] + " " + siblingss[0][this.siblings_list[i][0]] + " who " + siblingss[2][this.siblings_list[i][2]];
       if( i < this.siblings - 2) bio= bio + ", a ";
       else if(i == this.siblings - 2) bio = bio + " and a ";
       else bio = bio + ".";
+    }
+    bio = bio + "</p>Life events:<br>";
+    var i_enemies;
+    var i_allies;
+    if(typeof this.enemies !== 'undefined') i_enemies = this.enemies.length;
+    if(typeof this.allies !== 'undefined') i_allies = this.allies.length;
+    for(let i = 0; i<this.life_events.length; i++){
+      bio = bio + "<p>";
+      if (this.life_events[i]["event"] == 1) {
+           bio = bio + "You made an " + allies_enemies[this.life_events[i]["type"]] + ".";
+           if(this.life_events[i]["type"] == 0){
+             bio = bio + " Ally #" + (this.allies.length - i_allies + 1) + "."
+             i_allies = i_allies - 1;
+           }
+           if(this.life_events[i]["type"] == 1){
+             bio = bio + " Enemy #" + (this.enemies.length - i_enemies + 1) + "."
+             i_enemies = i_enemies - 1;
+           }
+      }
+      if (this.life_events[i]["event"] == 0) bio = bio + "You found " + fortune_or_misfortune[this.life_events[i]["type"]] + ".";
+      if (this.life_events[i]["event"] == 2) bio = bio + "You found romance."
+      bio = bio + "</p>";
     }
     return bio;
   }
