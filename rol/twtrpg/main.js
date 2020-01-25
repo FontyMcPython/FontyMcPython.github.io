@@ -764,10 +764,10 @@ function choices() {
     document.getElementById("answer").innerHTML =accumulation + "Life event: <input type='text' id='roll'><button onclick='roll_item(\"roll\")'>1d10</button><button onclick='step()'>Next</button>";
   }
   else if(dest==="venture_desventure") {
-    dest = venture_desventure(pj, roll(10), roll(10), roll(10));
+    document.getElementById("answer").innerHTML =accumulation + "Fortune or misfortune: <input type='text' id='roll'><button onclick='roll_item(\"roll\")'>1d10</button><br>Result: <input type='text' id='roll2'><button onclick='roll_item(\"roll2\")'>1d10</button><br>Extra: <input type='text' id='roll3'><button onclick='roll_item(\"roll3\")'>1d10</button><button onclick='step()'>Next</button>";
   }
   else if(dest==="allys_enemies") {
-    dest = allys_enemies(pj, roll(10));
+   document.getElementById("answer").innerHTML =accumulation + "Ally or enemy: <input type='text' id='roll'><button onclick='roll_item(\"roll\")'>1d10</button><button onclick='step()'>Next</button>";
   }
   else if(dest==="ally") {
     dest = ally(pj, roll(10), roll(10), roll(10), roll(10), roll(10));
@@ -849,14 +849,19 @@ function step() {
     dest = siblings_generation(pj, document.getElementById("roll").value, document.getElementById("roll2").value, document.getElementById("roll3").value, document.getElementById("roll4").value);
   }
   else if (dest==="life_events") {
+    accumulation = accumulation + "Life event: " + document.getElementById("roll").value + "<br>";
     dest = life_events(pj, document.getElementById("roll").value);
     console.log(pj);
   }
   else if(dest==="venture_desventure") {
-    dest = venture_desventure(pj, roll(10), roll(10), roll(10));
+    accumulation = accumulation + "&emsp; Fortune or misfortune:" + document.getElementById("roll").value + "<br>";
+    accumulation = accumulation + "&emsp; Result:" + document.getElementById("roll2").value + "<br>";
+    accumulation = accumulation + "&emsp; Extra: " + document.getElementById("roll3").value + "<br>";
+    dest = venture_desventure(pj, document.getElementById("roll").value, document.getElementById("roll2").value, document.getElementById("roll3").value);
   }
   else if(dest==="allys_enemies") {
-    dest = allys_enemies(pj, roll(10));
+    accumulation = accumulation + "&emsp;Ally or enemy: " + document.getElementById("roll").value + "<br>";
+    dest = life_events(pj, document.getElementById("roll").value);
   }
   else if(dest==="ally") {
     dest = ally(pj, roll(10), roll(10), roll(10), roll(10), roll(10));
@@ -883,12 +888,3 @@ function step() {
   }
   choices();
 }
-
-//var pj = new Pj("Teofanes", 8, 0, 52);
-//random_generate(pj)
-//console.log(pj.toString());
-//console.log(pj);
-//var pj2 = new Pj("Aeothas", 0, 2, 94);
-//random_generate(pj2);
-//console.log(pj2.toString());
-//console.log(pj2);
